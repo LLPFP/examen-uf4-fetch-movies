@@ -23,12 +23,16 @@ export default function HomePage() {
       setError(null);
 
       try {
-        const response = await fetch(`${BASE_URL}/movie/popular`, {
-          headers: {
-            Authorization: `Bearer ${TOKEN}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `${BASE_URL}/movie/popular?language=es-ES`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${TOKEN}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Error al cargar películas populares");
