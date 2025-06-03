@@ -6,7 +6,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/MoviesExplorer");
+    router.push("/MovieExplorer");
   }, [router]);
 
   return null;

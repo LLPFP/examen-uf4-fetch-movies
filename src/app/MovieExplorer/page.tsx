@@ -4,11 +4,14 @@ import { useEffect } from "react";
 import { useMovies } from "@/contexts/movies-context";
 import PeliculasCard from "@/misComponentes/Peliculas";
 
+import { useState } from "react";
+
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export default function HomePage() {
   const { movies, loading, error, setMovies, setLoading, setError } =
     useMovies();
+  const [selectedTab, setSelectedTab] = useState("Populares");
 
   const TOKEN =
     process.env.NEXT_PUBLIC_TMDB_TOKEN ||
@@ -46,11 +49,31 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8">Movie Explorer</h1>
+        <h1 className="text-3xl font-bold mb-6">Movie Explorer</h1>
 
-        <div>
-          <button>Populares</button>
-          <button className="ml-4">Favoritas</button>
+        <div className="mb-4 flex justify-center items-center space-x-4">
+          <div className="inline-flex rounded-md shadow-sm bg-gray-900 p-1 w-full max-w-md">
+            <button
+              className={`w-1/2 px-4 py-2 rounded-l-md focus:outline-none ${
+                selectedTab === "Populares"
+                  ? "bg-gray-700 text-white"
+                  : "bg-gray-300 text-gray-700"
+              }`}
+              onClick={() => setSelectedTab("Populares")}
+              type="button">
+              Populares
+            </button>
+            <button
+              className={`w-1/2 px-4 py-2 rounded-r-md focus:outline-none ${
+                selectedTab === "Favoritas"
+                  ? "bg-gray-700 text-white"
+                  : "bg-gray-300 text-gray-700"
+              }`}
+              onClick={() => setSelectedTab("Favoritas")}
+              type="button">
+              Favoritas
+            </button>
+          </div>
         </div>
 
         {error && (
@@ -65,8 +88,8 @@ export default function HomePage() {
             <p className="mt-2">Cargando...</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <h2 className="col-span-full text-4xl font-semibold mb-4 mt-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 border border-gray-200 p-4 rounded-lg">
+            <h2 className="col-span-full text-4xl font-semibold mb-4">
               Películas Populares
             </h2>
 

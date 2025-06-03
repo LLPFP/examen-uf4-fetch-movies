@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="bg-gray-800 text-white py-4">
+    <header className="bg-black text-white py-4">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold text-center">
           Movie Explorer - Luis Lopez Puig
