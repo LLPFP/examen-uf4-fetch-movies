@@ -5,6 +5,11 @@ import { useMovies } from "@/contexts/movies-context";
 import PeliculasCard from "@/misComponentes/Peliculas";
 
 const TOKEN = process.env.NEXT_PUBLIC_TMDB_TOKEN;
+
+localStorage.setItem("token", TOKEN || "");
+
+const storedToken = localStorage.getItem("token");
+
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export default function HomePage() {
@@ -19,7 +24,7 @@ export default function HomePage() {
       try {
         const response = await fetch(`${BASE_URL}/movie/popular`, {
           headers: {
-            Authorization: `Bearer ${TOKEN}`,
+            Authorization: `Bearer ${storedToken}`,
             "Content-Type": "application/json",
           },
         });
