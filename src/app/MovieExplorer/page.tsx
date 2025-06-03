@@ -5,6 +5,7 @@ import { useMovies } from "@/contexts/movies-context";
 import PeliculasCard from "@/misComponentes/Peliculas";
 
 import { useState } from "react";
+import SearchBar from "@/misComponentes/search-bar";
 
 const BASE_URL = "https://api.themoviedb.org/3";
 
@@ -98,6 +99,13 @@ export default function HomePage() {
             </h2>
 
             {/* <-- posible searchbar --> */}
+
+            <div className="col-span-full mb-4 flex justify-start">
+              <div className="w-full max-w-xs">
+                <SearchBar />
+              </div>
+            </div>
+
             {movies.map((movie) => (
               <PeliculasCard key={movie.id} movie={movie} />
             ))}

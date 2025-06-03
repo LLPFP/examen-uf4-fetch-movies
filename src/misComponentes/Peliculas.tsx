@@ -55,12 +55,6 @@ export default function PeliculasCard({ movie }: MovieCardProps) {
           </h3>
           <p className="text-black text-sm mb-2">Año: {year}</p>
           <p className="text-black text-sm line-clamp-3 ">{movie.overview}</p>
-          <div className="mt-2 flex items-center">
-            <span className="text-yellow-500">★</span>
-            <span className="ml-1 text-sm">
-              {movie.vote_average.toFixed(1)}
-            </span>
-          </div>
         </div>
       </div>
       {mostrarDetalle && (
