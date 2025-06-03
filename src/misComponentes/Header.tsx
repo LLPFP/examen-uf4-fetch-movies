@@ -15,20 +15,15 @@ export function Header() {
       <nav className="mt-4">
         <ul className="flex justify-center space-x-6">
           <li>
-            <Link href="/" className="text-white hover:text-gray-300">
-              Inicio
+            <Link
+              href="/MovieExplorer"
+              className="text-white hover:text-gray-300">
+              Explorador de Películas
             </Link>
           </li>
           <li>
             <Link href="/About" className="text-white hover:text-gray-300">
               About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/MovieExplorer"
-              className="text-white hover:text-gray-300">
-              Explorador de Películas
             </Link>
           </li>
         </ul>
