@@ -5,7 +5,8 @@ import type React from "react";
 import { useState } from "react";
 import { useMovies } from "@/contexts/movies-context";
 
-const TOKEN = process.env.NEXT_PUBLIC_TMDB_TOKEN;
+const TOKEN =
+  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjA4ODYyMGRkOTE1NzQxMjgzNWJhNDJlOWIyODMzZSIsIm5iZiI6MTc0ODg5NDI3OS4zMDA5OTk5LCJzdWIiOiI2ODNlMDI0N2YxZGM2NzI3N2JmZGI4MjIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.mJfS3FoMgoi1q6oXlwmz1ZKoLIfRPhCxm_J5gVbT0W4";
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export default function SearchBar() {
